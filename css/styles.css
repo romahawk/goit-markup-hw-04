@@ -235,9 +235,6 @@ img {
   text-align: center;
   text-transform: capitalize;
   color: var(--navy-blue);
-}
-
-.team .team-title {
   margin-bottom: 72px;
 }
 
@@ -255,10 +252,8 @@ img {
 }
 
 .team-member-info {
-  padding: 32px 0; /* Відступи від краю контейнера, як вказано */
-  /* Або еквівалентно: */
-  /* padding-top: 32px; */
-  /* padding-bottom: 32px; */
+  padding: 32px 0;
+  text-align: center;
 }
 
 .team-name {
@@ -266,18 +261,44 @@ img {
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  text-align: center; /* Вирівнювання по центру */
   color: var(--navy-blue);
-  margin-bottom: 8px; /* Відступ від заголовка до параграфу */
+  margin-bottom: 8px;
 }
 
 .team-role {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  text-align: center; /* Вирівнювання по центру */
   color: var(--slate);
-  margin-bottom: 32px; /* Залишаємо відступ знизу, як у попередньому дизайні */
+  margin-bottom: 8px; /* Reduced to make space for social icons */
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px; /* Spacing between icons */
+  margin-top: 8px;
+}
+
+.social-links-item {
+  width: 40px;
+  height: 40px;
+  background-color: var(--iris); /* Blue background for icons */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.social-links-item:hover,
+.social-links-item:focus {
+  background-color: var(--ocean); /* Hover effect */
+}
+
+.social-icon {
+  fill: var(--white); /* White icon color */
 }
 /* #endregion */
 
@@ -334,15 +355,17 @@ img {
 /* #region Footer */
 .footer {
   background: var(--navy-blue);
-  padding: 100px 0; /* Відступи всередині секції, як вказано */
-  /* Або еквівалентно: */
-  /* padding-top: 100px; */
-  /* padding-bottom: 100px; */
+  padding: 100px 0;
 }
 
-.footer .container {
-  flex-direction: column;
+.footer-container {
+  display: flex;
+  justify-content: space-between;
   align-items: flex-start;
+}
+
+.footer-left {
+  max-width: 264px;
 }
 
 .logo-footer {
@@ -355,7 +378,7 @@ img {
   color: var(--iris);
   text-decoration: none;
   margin-bottom: 16px;
-  display: inline-block; /* Додано для надання блочних властивостей */
+  display: inline-block;
 }
 
 .span-footer {
@@ -367,7 +390,44 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--cloud);
-  max-width: 264px;
+}
+
+.footer-right {
+  margin-left: 40px; /* Adjust spacing between left and right sections */
+}
+
+.footer-social-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px; /* Smaller gap for footer icons */
+}
+
+.social-links-item {
+  width: 40px;
+  height: 40px;
+  background-color: var(--iris);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.social-links-item:hover,
+.social-links-item:focus {
+  background-color: var(--ocean);
+}
+
+.social-icon {
+  fill: var(--white);
 }
 /* #endregion */
 
