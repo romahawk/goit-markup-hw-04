@@ -163,7 +163,6 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-size: auto; /* Changed from cover to auto to respect original size */
   max-width: 1440px; /* Ensure the section doesn’t stretch beyond 1440px */
   margin: 0 auto; /* Center the section */
 }
