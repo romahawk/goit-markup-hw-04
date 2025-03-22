@@ -1,0 +1,391 @@
+:root {
+  /* Fonts */
+  --main-family: 'Roboto', sans-serif;
+  --second-family: 'Raleway', sans-serif;
+
+  /* Colors */
+  --iris: #4d5ae5;
+  --ocean: #404bbf;
+  --navy-blue: #2e2f42;
+  --green: #31d0aa;
+  --slate: #434455;
+  --light-slate: #8e8f99;
+  --cornflower: #e7e9fc;
+  --cloud: #f4f4fd;
+  --navy-blue-modal: rgba(46, 47, 66, 0.4);
+  --grey: rgba(46, 47, 66, 0.7);
+  --white: #fff;
+  --dairy: #fcfcfc;
+}
+
+body {
+  font-family: var(--main-family);
+  color: var(--slate);
+  background-color: var(--white);
+  margin: 0;
+}
+
+/* Reset margins for headings and paragraphs */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+/* Reset margins and left padding for lists */
+ul, ol {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+/* Make images block elements */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container */
+.container {
+  max-width: 1158px; /* Adjusted from 1200px to a common Figma width */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* #region Header */
+.header {
+  border-bottom: 1px solid var(--cornflower);
+  padding: 24px 0;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--iris);
+  text-decoration: none;
+  margin-right: 76px; /* Common Figma spacing between logo and nav */
+}
+
+.logo span {
+  color: var(--navy-blue);
+}
+
+.header-nav-list {
+  display: flex;
+  gap: 40px; /* Typical Figma spacing for nav items */
+}
+
+.header-nav-list-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--navy-blue);
+  text-decoration: none;
+  padding: 24px 0; /* Aligns with header padding */
+}
+
+.header-nav-list-text:hover,
+.header-nav-list-text:focus {
+  color: var(--ocean);
+}
+
+.address {
+  font-style: normal;
+}
+
+.address-list {
+  display: flex;
+  gap: 40px; /* Spacing between email and phone */
+}
+
+.address-list-text {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--slate);
+  text-decoration: none;
+}
+
+.address-list-text:hover,
+.address-list-text:focus {
+  color: var(--ocean);
+}
+/* #endregion */
+
+/* #region Hero */
+.hero {
+  background: var(--navy-blue);
+  padding: 188px 0; /* Typical Figma hero height */
+  text-align: center;
+
+  /* Add background image */
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7), /* Overlay for better text readability */
+      rgba(46, 47, 66, 0.7)
+    ),
+    url('../images/hero-bg.jpg'); /* Replace with your actual image path */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-text {
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1.07;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  max-width: 496px; /* Common Figma constraint */
+  margin: 0 auto 48px; /* Spacing before button */
+}
+
+.hero-button {
+  background: var(--iris);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  padding: 16px 32px; /* Figma button padding */
+  cursor: pointer;
+  display: block; /* Додано для центрування через margin */
+  min-width: 169px; /* Додано мінімальну ширину, як вказано */
+  margin: 0 auto; /* Центрування кнопки */
+}
+
+.hero-button:hover,
+.hero-button:focus {
+  background: var(--ocean);
+}
+/* #endregion */
+
+/* #region Benefits */
+.benefits {
+  padding: 120px 0; /* Standard section padding from Figma */
+}
+
+.benefits-list {
+  display: flex;
+  gap: 24px; /* Common Figma grid spacing */
+}
+
+.benefits-list-item {
+  flex: 1; /* Equal width for all items */
+}
+
+.benefits-list-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--navy-blue);
+  margin-bottom: 8px; /* Spacing between title and text */
+}
+
+.benefits-list-text {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--slate);
+}
+
+/* Патерн для приховування елементів візуально, але доступних для екранних читачів */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+/* #endregion */
+
+/* #region Team */
+.team {
+  background: var(--cloud);
+  padding: 120px 0;
+}
+
+.team-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--navy-blue);
+}
+
+.team .team-title {
+  margin-bottom: 72px;
+}
+
+.team-list {
+  display: flex;
+  gap: 24px;
+}
+
+.team-list-li {
+  background-color: var(--white);
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+              0px 1px 1px rgba(46, 47, 66, 0.16),
+              0px 2px 1px rgba(46, 47, 66, 0.08);
+  border-radius: 0 0 4px 4px;
+}
+
+.team-member-info {
+  padding: 32px 0; /* Відступи від краю контейнера, як вказано */
+  /* Або еквівалентно: */
+  /* padding-top: 32px; */
+  /* padding-bottom: 32px; */
+}
+
+.team-name {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: center; /* Вирівнювання по центру */
+  color: var(--navy-blue);
+  margin-bottom: 8px; /* Відступ від заголовка до параграфу */
+}
+
+.team-role {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-align: center; /* Вирівнювання по центру */
+  color: var(--slate);
+  margin-bottom: 32px; /* Залишаємо відступ знизу, як у попередньому дизайні */
+}
+/* #endregion */
+
+/* #region Portfolio */
+.portfolio {
+  padding: 120px 0;
+}
+
+.portfolio-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--navy-blue);
+  margin-bottom: 72px;
+}
+
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px 24px;
+}
+
+.portfolio-list-item {
+  flex-basis: calc((100% - 48px) / 3);
+}
+
+.portfolio-item-info {
+  padding: 32px 16px; /* Відступи від країв контейнера */
+  border: 1px solid var(--cornflower); /* Обводка по периметру */
+  border-top: none; /* Скидання обводки для верхнього краю */
+}
+
+.portfolio-item-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--navy-blue);
+  margin-bottom: 8px; /* Відступ між заголовком і параграфом */
+}
+
+.portfolio-item-text {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--slate);
+  margin: 0; /* Скидаємо попередні відступи */
+}
+/* #endregion */
+
+/* #region Footer */
+.footer {
+  background: var(--navy-blue);
+  padding: 100px 0; /* Відступи всередині секції, як вказано */
+  /* Або еквівалентно: */
+  /* padding-top: 100px; */
+  /* padding-bottom: 100px; */
+}
+
+.footer .container {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-footer {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--iris);
+  text-decoration: none;
+  margin-bottom: 16px;
+  display: inline-block; /* Додано для надання блочних властивостей */
+}
+
+.span-footer {
+  color: var(--cloud);
+}
+
+.footer-text {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--cloud);
+  max-width: 264px;
+}
+/* #endregion */
+
+/* Responsive Design (optional, adjust per Figma) */
+@media (max-width: 1158px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .benefits-list,
+  .team-list,
+  .portfolio-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .portfolio-list-item {
+    flex-basis: 100%;
+    max-width: 360px;
+  }
+}
