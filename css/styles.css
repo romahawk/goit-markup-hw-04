@@ -97,11 +97,24 @@ img {
   color: var(--navy-blue);
   text-decoration: none;
   padding: 24px 0; /* Aligns with header padding */
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Added transition */
+  position: relative; /* For positioning the ::after element */
 }
 
 .header-nav-list-text:hover,
 .header-nav-list-text:focus {
   color: var(--ocean);
+}
+
+.header-nav-list-text.current::after {
+  content: ''; /* No text content, per C11 */
+  position: absolute;
+  bottom: -1px; /* Align with the header border */
+  left: 0;
+  width: 100%;
+  height: 4px; /* Thickness of the underline */
+  background-color: var(--ocean);
+  border-radius: 2px;
 }
 
 .address {
@@ -119,6 +132,7 @@ img {
   letter-spacing: 0.02em;
   color: var(--slate);
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Added transition */
 }
 
 .address-list-text:hover,
@@ -142,6 +156,9 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-size: auto; /* Changed from cover to auto to respect original size */
+  max-width: 1440px; /* Ensure the section doesn’t stretch beyond 1440px */
+  margin: 0 auto; /* Center the section */
 }
 
 .hero-text {
@@ -168,6 +185,7 @@ img {
   display: block; /* Додано для центрування через margin */
   min-width: 169px; /* Додано мінімальну ширину, як вказано */
   margin: 0 auto; /* Центрування кнопки */
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Updated transition */
 }
 
 .hero-button:hover,
@@ -284,21 +302,27 @@ img {
 .social-links-item {
   width: 40px;
   height: 40px;
-  background-color: var(--iris); /* Blue background for icons */
+  background-color: var(--iris);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Updated in C6 */
 }
 
 .social-links-item:hover,
 .social-links-item:focus {
-  background-color: var(--ocean); /* Hover effect */
+  background-color: var(--ocean);
 }
 
 .social-icon {
-  fill: var(--white); /* White icon color */
+  fill: var(--white);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Added transition for fill */
+}
+
+.social-links-item:hover .social-icon,
+.social-links-item:focus .social-icon {
+  fill: var(--cloud); /* Change fill color on hover/focus */
 }
 /* #endregion */
 
@@ -326,12 +350,54 @@ img {
 
 .portfolio-list-item {
   flex-basis: calc((100% - 48px) / 3);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Transition for shadow on hover (C4, C6, C7) */
+  position: relative; /* For positioning the overlay (C9) */
+}
+
+.portfolio-list-item:hover,
+.portfolio-list-item:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+              0px 1px 1px rgba(46, 47, 66, 0.16),
+              0px 2px 1px rgba(46, 47, 66, 0.08); /* Shadow on hover (C4) */
+}
+
+.portfolio-image-wrapper {
+  position: relative;
+  overflow: hidden; /* Hide overflow of the overlay (C9) */
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--iris); /* Blue overlay (C10) */
+  transform: translateY(100%); /* Start below the image (C10) */
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Slide up effect (C6, C7, C10) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.portfolio-list-item:hover .portfolio-overlay,
+.portfolio-list-item:focus .portfolio-overlay {
+  transform: translateY(0); /* Slide up on hover (C9, C10) */
+}
+
+.portfolio-overlay-text {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  text-align: center;
 }
 
 .portfolio-item-info {
-  padding: 32px 16px; /* Відступи від країв контейнера */
-  border: 1px solid var(--cornflower); /* Обводка по периметру */
-  border-top: none; /* Скидання обводки для верхнього краю */
+  padding: 32px 16px;
+  border: 1px solid var(--cornflower);
+  border-top: none;
 }
 
 .portfolio-item-title {
@@ -340,7 +406,7 @@ img {
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: var(--navy-blue);
-  margin-bottom: 8px; /* Відступ між заголовком і параграфом */
+  margin-bottom: 8px;
 }
 
 .portfolio-item-text {
@@ -348,7 +414,7 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--slate);
-  margin: 0; /* Скидаємо попередні відступи */
+  margin: 0;
 }
 /* #endregion */
 
