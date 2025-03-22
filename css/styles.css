@@ -425,8 +425,8 @@ img {
 }
 
 .footer-container {
+  position: relative; /* Allow absolute positioning of children */
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
 }
 
@@ -459,7 +459,13 @@ img {
 }
 
 .footer-right {
-  margin-left: 40px; /* Adjust spacing between left and right sections */
+  width: 208px; /* Set width to match Figma design */
+  height: 80px; /* Set height to match Figma design */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute; /* Position absolutely within the container */
+  left: 399px; /* 540px from the left edge of the design - 141px (container offset) */
 }
 
 .footer-social-title {
@@ -471,9 +477,10 @@ img {
   margin-bottom: 16px;
 }
 
-.social-links {
+.social-links-footer {
   display: flex;
-  gap: 16px; /* Smaller gap for footer icons */
+  gap: 8px; /* Reduced gap to match Figma design */
+  justify-content: flex-start;
 }
 
 .social-links-item {
@@ -484,7 +491,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-links-item:hover,
@@ -494,6 +501,12 @@ img {
 
 .social-icon {
   fill: var(--white);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-links-item:hover .social-icon,
+.social-links-item:focus .social-icon {
+  fill: var(--cloud);
 }
 /* #endregion */
 
