@@ -1,548 +1,626 @@
-:root {
-  /* Fonts */
-  --main-family: 'Roboto', sans-serif;
-  --second-family: 'Raleway', sans-serif;
 
-  /* Colors */
-  --iris: #4d5ae5;
-  --ocean: #404bbf;
-  --navy-blue: #2e2f42;
-  --green: #31d0aa;
-  --slate: #434455;
-  --light-slate: #8e8f99;
-  --cornflower: #e7e9fc;
-  --cloud: #f4f4fd;
-  --navy-blue-modal: rgba(46, 47, 66, 0.4);
-  --grey: rgba(46, 47, 66, 0.7);
-  --white: #fff;
-  --dairy: #fcfcfc;
+/* #region Common styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1158px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
 body {
-  font-family: var(--main-family);
-  color: var(--slate);
-  background-color: var(--white);
-  margin: 0;
+    font-family: "Roboto", sans-serif;
+    color: #434455;
+    background-color: #fff;
 }
 
-/* Reset margins for headings and paragraphs */
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
+:root {
+    --iris: #4d5ae5;
+    --ocean: #404bbf;
+    --navy-blue: #2e2f42;
+    --green: #31d0aa;
+    --slate: #434455;
+    --light-slate: #8e8f99;
+    --cornflower: #e7e9fc;
+    --cloud: #f4f4fd;
+    --navy-blue-modal: rgba(46, 47, 66, 0.4);
+    --grey: rgba(46, 47, 66, 0.7);
+    --white: #fff;
+    --dairy: #fcfcfc;
+    --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Reset margins and left padding for lists */
-ul, ol {
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
-}
-
-/* Make images block elements */
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Container */
-.container {
-  max-width: 1158px; /* Adjusted from 1200px to a common Figma width */
-  margin: 0 auto;
-  padding: 0 15px;
-}
+/* #endregion Common styles */
 
 /* #region Header */
-.header {
-  border-bottom: 1px solid var(--cornflower);
-  padding: 24px 0;
-  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 
-              0px 1px 1px rgba(46, 47, 66, 0.16), 
-              0px 1px 6px rgba(46, 47, 66, 0.08);
+
+.page-header {
+    border-bottom: 1px solid #e7e9fc;
+    box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 
-.header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.page-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;     
+}
+
+.nav-link {
+    display: block;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+    transition: color var(--animation);
+}
+
+.nav-link.current {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #404bbf;
+    position: relative;
+}
+
+.nav-link.current::after {
+    content: "";
+    width: 100%;
+    left: 0;
+    bottom: -1px;
+    border-radius: 2px;
+    width: 48px;
+    height: 4px;
+    background-color: #404bbf;
+    position: absolute;
 }
 
 .header-nav {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.contacts-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
 
 .logo {
-  font-family: var(--second-family);
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.17;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--iris);
-  text-decoration: none;
-  margin-right: 76px; /* Common Figma spacing between logo and nav */
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.17;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #4d5ae5;
 }
 
-.logo span {
-  color: var(--navy-blue);
+.logo.header-logo {
+    margin-right: 76px;
 }
 
-.header-nav-list {
-  display: flex;
-  gap: 40px; /* Typical Figma spacing for nav items */
+.header-logo .logo-part {
+    color: #2e2f42;
 }
 
-.header-nav-list-text {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--navy-blue);
-  text-decoration: none;
-  padding: 24px 0; /* Aligns with header padding */
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Added transition */
-  position: relative; /* For positioning the ::after element */
+.footer-logo .logo-part {
+    color: #f4f4fd;
 }
 
-.header-nav-list-text:hover,
-.header-nav-list-text:focus {
-  color: var(--ocean);
+.nav-link {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        color: #2e2f42;
 }
 
-.header-nav-list-text.current {
-  color: var(--ocean); /* Color for the current page link (first menu item) */
+.contacts {
+        font-style: normal;
 }
 
-.header-nav-list-text.current::after {
-  content: ''; /* No text content, per C11 */
-  position: absolute;
-  bottom: -1px; /* Align with the header border */
-  left: 0;
-  width: 100%;
-  height: 4px; /* Thickness of the underline */
-  background-color: var(--ocean);
-  border-radius: 2px;
+.contacts-link {
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        color: #434455;
+        transition: color var(--animation);
 }
 
-.address {
-  font-style: normal;
+.nav-link:hover,
+.nav-link:focus,
+.contacts-link:hover,
+.contacts-link:focus {
+    color: #404bbf;
 }
 
-.address-list {
-  display: flex;
-  gap: 40px; /* Spacing between email and phone */
-}
+/* #endregion Header */
 
-.address-list-text {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--slate);
-  text-decoration: none;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Added transition */
-}
-
-.address-list-text:hover,
-.address-list-text:focus {
-  color: var(--ocean);
-}
-/* #endregion */
 
 /* #region Hero */
-.hero {
-  background: var(--navy-blue);
-  padding: 188px 0; /* Typical Figma hero height */
-  text-align: center;
 
-  /* Add background image */
-  background-image: linear-gradient(
-      rgba(46, 47, 66, 0.7), /* Overlay for better text readability */
-      rgba(46, 47, 66, 0.7)
-    ),
-    url('../images/hero-bg.jpg'); /* Replace with your actual image path */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  max-width: 1440px; /* Ensure the section doesn’t stretch beyond 1440px */
-  margin: 0 auto; /* Center the section */
+.hero {
+    background-color: #2e2f42;
+    max-width: 1440px;
+    height: 600px;
+    color: #fff;
+    padding-top: 188px;
+    padding-bottom: 188px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
+
 
 .hero-text {
-  font-weight: 700;
-  font-size: 56px;
-  line-height: 1.07;
-  letter-spacing: 0.02em;
-  color: var(--white);
-  max-width: 496px; /* Common Figma constraint */
-  margin: 0 auto 48px; /* Spacing before button */
+        font-weight: 700;
+        font-size: 56px;
+        line-height: 1.07;
+        letter-spacing: 0.02em;
+        text-align: center;
+        max-width: 496px;
+        margin-bottom: 48px;
+        margin-left: 288px;
+        margin-right: 288px;
 }
 
-.hero-button {
-  background: var(--iris);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: var(--white);
-  border: none;
-  border-radius: 4px;
-  padding: 16px 32px; /* Figma button padding */
-  cursor: pointer;
-  display: block; /* Додано для центрування через margin */
-  min-width: 169px; /* Додано мінімальну ширину, як вказано */
-  margin: 0 auto; /* Центрування кнопки */
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Updated transition */
+.hero-btn {
+        display: block;
+        background-color: #4d5ae5;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.04em;
+        color: #fff;
+        cursor: pointer;
+        margin-left: 480px;
+        margin-right: 480px;
+        border: none;
+        border-radius: 4px;
+        min-width: 169px;
+        height: 56px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+        transition: background-color var(--animation);
 }
 
-.hero-button:hover,
-.hero-button:focus {
-  background: var(--ocean);
-}
-/* #endregion */
-
-/* #region Benefits */
-.benefits {
-  padding: 120px 0; /* Standard section padding from Figma */
+.hero-btn:hover,
+.hero-btn:focus {
+    background-color: #404bbf;
 }
 
-.benefits-list {
-  display: flex;
-  gap: 24px; /* Common Figma grid spacing */
+/* #endregion Hero */
+
+
+/* #region Features */
+
+.features {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+    padding-top: 120px;
+    padding-bottom: 120px;
 }
 
-.benefits-list-item {
-  flex: 1; /* Equal width for all items */
-}
-
-.benefits-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 112px;
-  background-color: #f4f4fd; 
-  border-radius: 4px;
-  border: 1px solid #8e8f99;
-  margin-bottom: 8px; 
-
-}
-
-.benefits-list-title {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  color: var(--navy-blue);
-  margin-bottom: 8px; /* Spacing between title and text */
-}
-
-.benefits-list-text {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--slate);
-}
-
-/* Патерн для приховування елементів візуально, але доступних для екранних читачів */
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        white-space: nowrap;
+        clip-path: inset(100%);
+        clip: rect(0 0 0 0);
+        overflow: hidden;
 }
-/* #endregion */
+    
+
+
+.features-subtitle {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+        color: #2e2f42;
+        margin-bottom: 8px;
+}
+
+.features-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.features-list-item {
+    width: calc((100% - 72px) / 4);
+}
+
+.features-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    width: 264px;
+    height: 112px;
+    border: 1px solid #8e8f99;
+    border-radius: 4px;
+    background-color: #f4f4fd;
+}
+
+.features-svg {}
+
+
+.features-text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        color: #434455;
+}
+
+/* #endregion Features */
+
 
 /* #region Team */
 .team {
-  background: var(--cloud);
-  padding: 120px 0;
+    background-color: #f4f4fd;
+    max-width: 1440px;
+    color: #2e2f42;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    
+}
+
+.team.container {
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 
 .team-title {
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.11;
-  letter-spacing: 0.02em;
-  text-align: center;
-  text-transform: capitalize;
-  color: var(--navy-blue);
-  margin-bottom: 72px;
+    margin-bottom: 72px;
+}
+
+
+.team-title,
+.portfolio-title {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 1.11;
+        letter-spacing: 0.02em;
+        text-align: center;
+        color: #2e2f42;
+        text-transform: capitalize;
 }
 
 .team-list {
-  display: flex;
-  gap: 24px;
+    display: flex;
+    column-gap: 24px;
 }
 
-.team-list-li {
-  background-color: var(--white);
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
-              0px 1px 1px rgba(46, 47, 66, 0.16),
-              0px 2px 1px rgba(46, 47, 66, 0.08);
-  border-radius: 0 0 4px 4px;
+
+.team-list-item {
+    background-color: #fff;
+    border-radius: 0 0 4px 4px;
+    width: 264px;
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+
 }
 
-.team-member-info {
-  padding: 32px 0;
-  text-align: center;
+.team-container {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    justify-items: center;
+    align-items: center;
 }
 
-.team-name {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  color: var(--navy-blue);
-  margin-bottom: 8px;
+.team-container-list {
+    max-width: 232px;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
 }
 
-.team-role {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--slate);
-  margin-bottom: 8px; /* Reduced to make space for social icons */
+.team-container-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #4d5ae5;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Social Links */
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 24px; /* Spacing between icons */
-  margin-top: 8px;
+
+
+.team-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    transition: background-color var(--animation);
 }
 
-.social-links-item {
-  width: 40px;
-  height: 40px;
-  background-color: var(--iris);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Updated in C6 */
+.team-social-link:hover,
+.team-social-link:focus {
+    background-color: #404bbf;
+    cursor: pointer;
 }
 
-.social-links-item:hover,
-.social-links-item:focus {
-  background-color: var(--ocean);
+.team-social-icon {
+    fill: #f4f4fd;
 }
 
-.social-icon {
-  fill: var(--white);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Added transition for fill */
+.social-icon-svg {
+    fill: #f4f4fd;
 }
 
-.social-links-item:hover .social-icon,
-.social-links-item:focus .social-icon {
-  fill: var(--cloud); /* Change fill color on hover/focus */
+
+.team-subtitle {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+        text-align: center;
+        color: #2e2f42;
+        margin-bottom: 8px;
 }
-/* #endregion */
+
+.team-text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        text-align: center;
+        color: #434455;
+        margin-bottom: 8px;
+}
+
+/* #endregion Team */
+
 
 /* #region Portfolio */
+
 .portfolio {
-  padding: 120px 0;
+    color: #2e2f42;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 120px;
+    padding-bottom: 120px;
 }
 
 .portfolio-title {
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.11;
-  letter-spacing: 0.02em;
-  text-align: center;
-  text-transform: capitalize;
-  color: var(--navy-blue);
-  margin-bottom: 72px;
+    margin-bottom: 72px;
 }
 
 .portfolio-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 48px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 48px; 
 }
 
 .portfolio-list-item {
-  flex-basis: calc((100% - 48px) / 3);
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Transition for shadow on hover (C4, C6, C7) */
-  position: relative; /* For positioning the overlay (C9) */
+    width: calc((100% - 48px) / 3);
+    transition: box-shadow var(--animation);
 }
 
-.portfolio-list-item:hover,
-.portfolio-list-item:focus {
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
-              0px 1px 1px rgba(46, 47, 66, 0.16),
-              0px 2px 1px rgba(46, 47, 66, 0.08); /* Shadow on hover (C4) */
-}
-
-.portfolio-image-wrapper {
-  position: relative;
-  overflow: hidden; /* Hide overflow of the overlay (C9) */
+.portfolio-container {
+    border: 1px solid #e7e9fc;
+    padding: 32px 16px;
+    border-top: none;
+    background: #fff;
 }
 
 .portfolio-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--iris); /* Blue overlay (C10) */
-  transform: translateY(100%); /* Start below the image (C10) */
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); /* Slide up effect (C6, C7, C10) */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
+    position: relative;
+    overflow: hidden;
 }
 
-.portfolio-list-item:hover .portfolio-overlay,
-.portfolio-list-item:focus .portfolio-overlay {
-  transform: translateY(0); /* Slide up on hover (C9, C10) */
+
+.overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #f4f4fd;
+    background-color: #4d5ae5;
+    width: 100%;
+    height: 100%;
+    padding: 40px 32px;
+    transform: translateY(100%);
+    transition: transform var(--animation);
 }
 
-.portfolio-overlay-text {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--white);
-  text-align: center;
+.portfolio-list-item:hover .overlay-text {
+    transform: translateY(0%);
+    cursor: pointer;
+    height: 300px;
+    
 }
 
-.portfolio-item-info {
-  padding: 32px 16px;
-  border: 1px solid var(--cornflower);
-  border-top: none;
+.portfolio-list-item:hover {
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
-.portfolio-item-title {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  color: var(--navy-blue);
-  margin-bottom: 8px;
+.portfolio-subtitle {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+        color: #2e2f42;
+        margin-bottom: 8px;
 }
 
-.portfolio-item-text {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--slate);
-  margin: 0;
+.portfolio-text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        color: #434455;
 }
-/* #endregion */
+/* #endregion Portfolio */
+
 
 /* #region Footer */
-.footer {
-  background: var(--navy-blue);
-  padding: 100px 0;
+
+.page-footer {
+    background-color: #2e2f42;
+    padding-top: 100px;
+    padding-bottom: 100px;   
 }
 
-.footer-container {
-  position: relative; /* Allow absolute positioning of children */
-  display: flex;
-  align-items: flex-start;
+.footer-logo-container {
+    margin-right: 120px;
+    max-width: 264px;
 }
 
-.footer-left {
-  max-width: 264px;
+.footer-social-container {
+    max-width: 208px;
 }
 
-.logo-footer {
-  font-family: var(--second-family);
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.17;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--iris);
-  text-decoration: none;
-  margin-bottom: 16px;
-  display: inline-block;
+.page-footer .container {
+    display: flex;
+    align-items: baseline
 }
 
-.span-footer {
-  color: var(--cloud);
+.page-footer-text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        color: #f4f4fd;
+        max-width: 264px;
 }
 
-.footer-text {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--cloud);
-}
-
-.footer-right {
-  width: 208px; /* Set width to match Figma design */
-  height: 80px; /* Set height to match Figma design */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: absolute; /* Position absolutely within the container */
-  left: 399px; /* 540px from the left edge of the design - 141px (container offset) */
+.logo.footer-logo {
+    display: inline-block;
+    width: 115px;
+    margin-bottom: 16px;
 }
 
 .footer-social-title {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--white);
-  margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #fff;
 }
 
-.social-links-footer {
-  display: flex;
-  gap: 8px; /* Reduced gap to match Figma design */
-  justify-content: flex-start;
+.footer-list {
+    display: flex;
+    gap: 16px;
 }
 
-.social-links-item {
-  width: 40px;
-  height: 40px;
-  background-color: var(--iris);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.social-links-item:hover,
-.social-links-item:focus {
-  background-color: var(--ocean);
-}
-
-.social-icon {
-  fill: var(--white);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.social-links-item:hover .social-icon,
-.social-links-item:focus .social-icon {
-  fill: var(--cloud);
-}
-/* #endregion */
-
-/* Responsive Design (optional, adjust per Figma) */
-@media (max-width: 1158px) {
-  .container {
-    max-width: 100%;
-  }
-
-  .benefits-list,
-  .team-list,
-  .portfolio-list {
-    flex-direction: column;
+.footer-list-item {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #4d5ae5;
+    display: flex;
     align-items: center;
-  }
-
-  .portfolio-list-item {
-    flex-basis: 100%;
-    max-width: 360px;
-  }
+    justify-content: center;
+    
 }
+
+.footer-social-container {
+
+}
+
+.footer-social-title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.footer-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    transition: background-color var(--animation);
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus {
+    background-color: #31d0aa;
+    cursor: pointer;
+}
+
+.footer-social-svg {
+    fill: #f4f4fd;
+}
+
+
+
+
+
+/* #endregion Footer */
